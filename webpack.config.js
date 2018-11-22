@@ -16,7 +16,6 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     historyApiFallback: true,
-    open: true,
     hot: true
   },
   plugins: [

@@ -1,0 +1,52 @@
+@import (reference) "~antd/lib/style/themes/default.less";
+
+.SuccessModal {
+  :global {
+    .ant-modal-body {
+      padding: 0;
+    }
+    .ant-modal-content {
+      border-radius: 0;
+    }
+  }
+}
+
+.loading {
+  background: @processing-color;
+}
+
+.success {
+  background: @success-color;
+}
+
+.error {
+  background: @error-color;
+}
+
+.IconArea {
+  height: 180px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Icon {
+  font-size: 48px;
+  color: white;
+}
+
+.TextArea {
+  padding: @padding-lg;
+  text-align: center;
+}
+
+.Title {
+  font-weight: bold;
+  margin-bottom: @padding-md;
+  font-size: 16px;
+}
+
+.Description {
+  margin-bottom: @padding-md;
+}
