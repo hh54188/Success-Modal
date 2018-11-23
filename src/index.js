@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import SuccessModal from "./SuccessModal";
+import App from "./App";
 
 const renderApp = function() {
-  ReactDOM.render(<SuccessModal />, document.querySelector("#app"));
+  ReactDOM.render(<App />, document.querySelector("#app"));
 };
 
 if (module.hot) {
-  module.hot.accept(["./SuccessModal"], function() {
+  module.hot.accept(["./App"], function() {
     renderApp();
   });
 }

@@ -1,30 +1,23 @@
 import React from "react";
 import { Modal, Button, Icon } from "antd";
 import classNames from "classnames";
-import posed from "react-pose";
+
+import LoadingIcon from "./LoadingIcon";
+import SuccessIconAnimation from "./SuccessIconAnimation";
+
+import { SuccessInfo, ErrorInfo } from "./Info";
+import { STATUS } from "./constants";
 
 import "antd/dist/antd.less";
 
 import style from "./index.less";
 
-const Box = posed.div({
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 }
-});
-
 export default class SuccessModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      status: "loading"
-    };
-    setInterval(() => {
-      this.setState({
-        status: "success"
-      });
-    }, 1000 * 1);
   }
   render() {
+    const { status } = this.props;
     return (
       <div>
         <Modal
@@ -33,20 +26,16 @@ export default class SuccessModal extends React.Component {
           visible
           footer={null}
         >
-          <div className={classNames(style.IconArea)}>
-            {/* <Icon className={style.Icon} type="check-circle" /> */}
-            {/* <AnimationLoader /> */}
-            {/* <SuccessIconAnimation /> */}
-            <div
-              className={classNames(style[this.state.status], style.color)}
-            />
-            {/* <div className={style.TextArea}>
-              <p className={style.Title}>创建成功</p>
-              <Button type="primary">
-                <span>前往报表</span>
-                <Icon type="arrow-right" />
-              </Button>
-            </div> */}
+          <div className={classNames(style.container)}>
+            <div className={classNames(style[status], style.color)}>
+              {status === STATUS.LOADING && <LoadingIcon />}
+              {status === STATUS.SUCCESS && <SuccessIconAnimation />}
+              {status === STATUS.ERROR && (
+                <Icon type="close-circle" className={style.icon} />
+              )}
+            </div>
+            <SuccessInfo visible={status === STATUS.SUCCESS} />
+            <ErrorInfo visible={status === STATUS.ERROR} />
           </div>
         </Modal>
       </div>
