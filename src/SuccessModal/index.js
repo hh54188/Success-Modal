@@ -7,9 +7,22 @@ import "antd/dist/antd.less";
 
 import style from "./index.less";
 
+const Box = posed.div({
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 }
+});
+
 export default class SuccessModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      status: "loading"
+    };
+    setInterval(() => {
+      this.setState({
+        status: "success"
+      });
+    }, 1000 * 1);
   }
   render() {
     return (
@@ -20,19 +33,21 @@ export default class SuccessModal extends React.Component {
           visible
           footer={null}
         >
-          <div className={classNames(style.IconArea, style.loading)}>
+          <div className={classNames(style.IconArea)}>
             {/* <Icon className={style.Icon} type="check-circle" /> */}
             {/* <AnimationLoader /> */}
             {/* <SuccessIconAnimation /> */}
+            <div
+              className={classNames(style[this.state.status], style.color)}
+            />
+            {/* <div className={style.TextArea}>
+              <p className={style.Title}>创建成功</p>
+              <Button type="primary">
+                <span>前往报表</span>
+                <Icon type="arrow-right" />
+              </Button>
+            </div> */}
           </div>
-          {/* <div className={style.TextArea}>
-            <p className={style.Title}>创建成功</p>
-            <p className={style.Description}>成功描述</p>
-            <Button type="primary">
-              <span>前往报表</span>
-              <Icon type="arrow-right" />
-            </Button>
-          </div> */}
         </Modal>
       </div>
     );
