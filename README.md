@@ -8,3 +8,7 @@
 
 - [https://codepen.io/simonwuyts/pen/EmpBEL](https://codepen.io/simonwuyts/pen/EmpBEL)
 - [https://codepen.io/Keale2/pen/mJzzNr](https://codepen.io/Keale2/pen/mJzzNr)
+
+## TODO
+
+- Transition and animate everything
