@@ -45,6 +45,6 @@ export const ErrorInfo = ({ visible }) => (
   <Info
     visible={visible}
     title="创建失败"
-    action={<Button type="primary">查看错误</Button>}
+    action={<Button className={style.errorBtn}>查看错误</Button>}
   />
 );
